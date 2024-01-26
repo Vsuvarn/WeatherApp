@@ -78,11 +78,11 @@ function Home({ navigation,route }) {
             <View style={styles.subcontainer}>
               <Card>
                 <MaterialCommunityIcons name="weather-windy" size={ms(40)} color="black" />
-                <Text variant='titleMedium'>{`${data.current.wind_kph} Km`}</Text>
+                <Text variant='titleMedium' theme={{colors:{onSurface:'#000000'}}}>{`${data.current.wind_kph} Km`}</Text>
               </Card>
               <Card>
                 <MaterialIcons name="water-drop" size={ms(40)} color="black" />
-                <Text variant='titleMedium'>{`${data.current.humidity} %`}</Text>
+                <Text variant='titleMedium' theme={{ colors: { onSurface: '#000000' } }}>{`${data.current.humidity} %`}</Text>
               </Card>
             </View>
           </View>)

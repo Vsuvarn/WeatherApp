@@ -6,9 +6,9 @@ function Location({ data }) {
   return (
     <React.Fragment>
       <View style={styles.container}>
-        <Text variant='titleLarge' style={{textAlign:'center'}}>{`${data.location.name}, ${data.location.region}, ${data.location.country} `}</Text>
+        <Text variant='titleLarge' style={{ textAlign: 'center' }} theme={{ colors: { onSurface: '#000000' } }}>{`${data.location.name}, ${data.location.region}, ${data.location.country} `}</Text>
       </View>
-      <Text variant='labelMedium' style={{ alignSelf: 'center' }}>{`${data.location.localtime}`}</Text>
+      <Text variant='labelMedium' style={{ alignSelf: 'center' }} theme={{ colors: { onSurface: '#000000' } }}>{`${data.location.localtime}`}</Text>
     </React.Fragment>
   )
 }

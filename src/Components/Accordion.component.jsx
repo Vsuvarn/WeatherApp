@@ -15,7 +15,9 @@ function Accordion({ item }) {
   return (
     <List.Item
       title={`${item.location.name}, ${item.location.region}, ${item.location.country}`}
+      titleStyle={{color:'#000000'}}
       description={`${item.location.localtime}`}
+      descriptionStyle={{color:'#000000'}}
       left={props => <MaterialIcons name="location-on" size={24} color="rgb(120, 69, 172)" style={{marginTop:'2%'}} />}
     
       onPress={handlePress}>

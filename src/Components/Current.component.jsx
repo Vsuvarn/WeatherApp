@@ -8,8 +8,8 @@ function Current({data}) {
   return (
     <View style={[styles.container, GlobalStyles.center]}>
       <Image source={{ uri: `https:${data.current.condition.icon}` }} resizeMode='cover' style={styles.img} />
-      <Text variant='headlineLarge'>{`${data.current.temp_c}`}<MaterialCommunityIcons name="temperature-celsius" size={ms(24)} color="black" /></Text>
-      <Text variant='titleMedium'>{`${data.current.condition.text}`}</Text>
+      <Text variant='headlineLarge' theme={{ colors: { onSurface: '#000000' } }}>{`${data.current.temp_c}`}<MaterialCommunityIcons name="temperature-celsius" size={ms(24)} color="black" /></Text>
+      <Text variant='titleMedium' theme={{ colors: { onSurface: '#000000' } }}>{`${data.current.condition.text}`}</Text>
     </View>
   )
 }

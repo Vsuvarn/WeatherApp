@@ -28,7 +28,7 @@ function History({ navigation }) {
         size={ms(30)}
         onPress={() => navigation.goBack()}
       />
-        <Text variant='titleLarge'>History</Text>
+        <Text variant='titleLarge' theme={{ colors: { onSurface: '#000000' } }}>History</Text>
       </View>
       <ScrollView>
         {
