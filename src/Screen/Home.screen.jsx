@@ -69,7 +69,7 @@ function Home({ navigation,route }) {
           placeholder="Search"
           onChangeText={(value) => { searchQuery.current = value; console.log('searchRef ', searchRef)}}
           onIconPress={onSearch}
-          clearIcon={(props) => <Feather name="delete" size={24} color="black" onPress={()=>{console.log('first')}}/>}
+          clearIcon={(props) => <Feather name="delete" size={24} color="black" onPress={() => { searchRef?.current?.clear() }}/>}
           onClearIconPress={(e)=>{searchRef?.current?.clear();}}
           clearAccessibilityLabel="clear"
           style={{ flex: 1 }}
