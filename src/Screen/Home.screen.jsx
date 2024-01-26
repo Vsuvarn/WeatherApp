@@ -3,6 +3,7 @@ import { View, Image, Keyboard } from 'react-native';
 import { Text, Searchbar, TouchableRipple, ActivityIndicator, MD2Colors, Snackbar } from 'react-native-paper';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import GlobalStyles, { vs, hs, ms } from '../../Style';
 import styles from './home.style'
 import { useLazyWeatherApiQuery } from '../../Redux-Store/services/weatherapi';
@@ -36,6 +37,7 @@ function Home({ navigation,route }) {
   const [location, setLocation] = React.useState('gandhinagar');
   const [weatherApi,{ isLoading, isSuccess, isError, isFetching, error, data }] = useLazyWeatherApiQuery();
   const searchQuery = React.useRef('');
+  const searchRef = React.useRef('');
   const [visible, setVisible] = React.useState(false);
   React.useMemo(() => { setVisible(isError) }, [isError,])
   React.useMemo(() => {
@@ -53,15 +55,23 @@ function Home({ navigation,route }) {
   }, [])
   const onToggleSnackBar = () => setVisible(!visible);
   const onDismissSnackBar = () => setVisible(false);
-
+  function onSearch() {
+    Keyboard.dismiss(); 
+    weatherApi(searchQuery.current); 
+    searchRef?.current?.clear();
+  }
   return (
     <View style={GlobalStyles.container}>
 
       <View style={{ flexDirection: 'row', alignContent: 'center' }}>
         <Searchbar
+          ref={searchRef}
           placeholder="Search"
-          onChangeText={(value) => searchQuery.current = value}
-          onIconPress={() => {Keyboard.dismiss(); weatherApi(searchQuery.current); }}
+          onChangeText={(value) => { searchQuery.current = value; console.log('searchRef ', searchRef)}}
+          onIconPress={onSearch}
+          clearIcon={(props) => <Feather name="delete" size={24} color="black" onPress={()=>{console.log('first')}}/>}
+          onClearIconPress={(e)=>{searchRef?.current?.clear();}}
+          clearAccessibilityLabel="clear"
           style={{ flex: 1 }}
         />
         <View style={[GlobalStyles.center, { marginLeft: '2%' }]}>
